@@ -16,4 +16,67 @@ Chime’s system architecture is designed as follows: Upon waking up and for sig
 
 > **Assumptions:** *While Chime does not consider mobile clients, we do consider dynamic outdoor environments. While Chime does not model fleeting reflectors in environment, it models long-term changes in multipath as it re-analyzes the current multipath based on transmissions from the client beacon and the master base station.* 
 
-This paper describes three challenges in achieving the above design: ***(1) Synchronizing Distributed Base Stations:*** Chime first develops a synchronization system that allows multiple base stations to coordinate. In doing so, it eliminates the time-varying and long-lasting phase errors due to hardware impediments, such as frequency, timing and phase offsets of low-cost and low-power wireless hardware. ***(2) Disentangling Signal Paths:*** Next, Chime analyzes the root cause of why signal power from the client would vary across frequencies in the first place – wireless multipath. Specifically, signals from the client traverse multiple paths as they reflect off buildings, trees and other objects before reaching the base stations. Signals along these paths can reinforce each other or cancel each other, depending on the frequency of operation. At the cloud, Chime combines measurements from the distributed array of base stations to decouple the different paths the signal traversed from the client, even if the geometry of these base stations is arbitrary and the environment is multipath-rich. ***(3) Estimating Optimal Frequency:*** Chime then recombines the signal components at all possible operating frequencies to determine their expected signal power across base stations. Chime can then use this information, along with the known interference and ambient noise at these frequencies perceived at base stations to determine the best frequency-of-operation.
+* This paper describes three challenges in achieving the above design: 
+  * ***(1) Synchronizing Distributed Base Stations:*** Chime first develops a synchronization system that allows multiple base stations to coordinate. In doing so, it eliminates the time-varying and long-lasting phase errors due to hardware impediments, such as frequency, timing and phase offsets of low-cost and low-power wireless hardware.
+  * ***(2) Disentangling Signal Paths:*** Next, Chime analyzes the root cause of why signal power from the client would vary across frequencies in the first place – wireless multipath. Specifically, signals from the client traverse multiple paths as they reflect off buildings, trees and other objects before reaching the base stations. Signals along these paths can reinforce each other or cancel each other, depending on the frequency of operation. At the cloud, Chime combines measurements from the distributed array of base stations to decouple the different paths the signal traversed from the client, even if the geometry of these base stations is arbitrary and the environment is multipath-rich.
+  *  ***(3) Estimating Optimal Frequency:*** Chime then recombines the signal components at all possible operating frequencies to determine their expected signal power across base stations. Chime can then use this information, along with the known interference and ambient noise at these frequencies perceived at base stations to determine the best frequency-of-operation.
+
+## Recurring results of the paper
+
+The following is a series of pictures of some statistical results in the author's paper reproduced by the algorithm.
+
+ ### Fig 9 Phase Stability
+
+***Phase of offset-free channel in multipath-rich scenarios is stable across SINRs***
+
+![img](README/clip_image002.jpg)
+
+### Fig 10 Multipath Sparsity
+
+***Histogram of # dominant paths shows sparsity of multipath in urban environment***
+
+![img](README/clip_image004.jpg)
+
+### Fig 11 Path Persistence
+
+***Sparse multipath is unstable across minutes***
+
+![img](README/clip_image005.png)
+
+### Fig 12 SINR Goodness-of-Fit
+
+***CDF of predicted vs. actual SINR across base stations***
+
+![img](README/clip_image007.jpg)
+
+### Fig 13
+
+***(left) Gain in SINR (dB) by using Chime vs. median frequency of operation***
+
+***(Right) Battery life of Chime vs. temporal interpolation technique***
+
+![img](README/clip_image008.png)
+
+### Fig 14 Gain in battery life across # messages per hour
+
+***Battery life increases 1.4-5.7 years for LP-WAN clients***
+
+![img](README/clip_image010.jpg)
+
+### Fig 15 
+
+***Gain in SINR and improvement in datarate vs. interpolation for # of frequencies used for training***
+
+![img](README/clip_image011.png)
+
+### Fig 16 Chime + Charm
+
+***Improvement in Gain(dB) when Charm is assisted by Chime***
+
+![img](README/clip_image013.jpg)
+
+### Fig17 
+
+***Nulling of unwanted interference leads to improved data rate for legitimate client with Chime***
+
+![img](README/clip_image015.jpg)
