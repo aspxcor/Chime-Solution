@@ -1,10 +1,6 @@
 # Chime-Solution
 ## Abstract
 This is Part of the code in the reproduction process of Chime, the nsdi2020 conference paper.Some of the core algorithms used in Chime's reproduction work are given in the project warehouse
-
-> paper: https://www.usenix.org/conference/nsdi20/presentation/gadre
-> 
-> dataset: https://cmu.box.com/s/ftqnqywb0jnf4a3kl4si81uums5153h4 
 ## Introduction of the Paper of Chime
 Low-power Wide-Area Networks (LP-WANs) are seen as a leading candidate to network the Internet-of-Things at city-scale. Yet, the battery life and performance of LPWAN devices varies greatly based on their operating frequency. In multipath-rich urban environments, received signal power varies rapidly with a low-power transmitter’s frequency, impacting its transmission time, data rate and battery life. However, the low bandwidth of LP-WANs means that there are hundreds of operating frequencies to choose from. Among them, we show how choosing a select few of these frequencies(~3.55%) effectively triples the battery life when compared to the rest for LP-WAN devices.
 
